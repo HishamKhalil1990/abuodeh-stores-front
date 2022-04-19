@@ -1,6 +1,6 @@
 import { useState } from 'react'
-import LoginLayout from '../../Components/LoginLayout'
-import RegLayout from '../../Components/RegLayout'
+import LoginLayout from '../Components/LoginLayout'
+import RegLayout from '../Components/RegLayout'
 
 function Login() {
   const [mode, setMode] = useState(true)
@@ -26,9 +26,7 @@ function Login() {
           </button>
         </div>
         <div className="col-span-3 flex h-full items-center justify-center rounded-tr-3xl rounded-br-3xl border-4 border-teal-500 bg-slate-100">
-          <div className="flex h-2/4 items-center justify-center">
-            {mode? <LoginLayout /> : <RegLayout />}
-          </div>
+          {mode ? <LoginLayout /> : <RegLayout />}
         </div>
       </div>
     </div>

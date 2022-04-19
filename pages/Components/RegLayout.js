@@ -6,7 +6,7 @@ export default function RegLayout(props) {
   const login = () => {}
 
   return (
-    <form className="mb-4 rounded bg-green-200 px-8 pt-6 pb-8 shadow-md ">
+    <form className="mb-4 rounded bg-green-200 px-8 pt-6 pb-8 shadow-md">
       <div className="mb-4">
         <label className="mb-2 block text-sm font-bold text-gray-700">
           Username
