@@ -1,32 +1,85 @@
 import { useState } from 'react'
-import LoginLayout from '../Components/LoginLayout'
-import RegLayout from '../Components/RegLayout'
 
 function Login() {
-  const [mode, setMode] = useState(true)
+  const [addClass, setAddClass] = useState('')
+  const changeUser = () => {}
+  const changePassword = () => {}
+  const login = () => {}
 
   return (
-    <div className="flex h-screen w-screen items-center justify-center">
-      <div className="grid h-3/4 w-2/3 grid-cols-5 rounded-3xl drop-shadow-2xl">
-        <div className="col-span-2 flex h-full items-center justify-center rounded-tl-3xl rounded-bl-3xl bg-teal-500">
-          <button
-            type="button"
-            className="h-10 w-2/4 rounded-r-full rounded-l-full border-2 border-slate-200 bg-teal-500 drop-shadow-2xl hover:bg-white"
-            onClick={() => setMode(!mode)}
-          >
-            {mode ? (
-              <div className="flex h-full w-full items-center justify-center font-normal text-white hover:text-teal-500">
-                SIGN UP
+    <div className="login-reg-container">
+      <div classNameName="loginbody">
+        <div className={`container ${addClass}`} id="container">
+          <div className="form-container sign-up-container">
+            <form action="#">
+              <h1>Create Account</h1>
+              <div className="social-container">
+                <a href="#" className="social">
+                  <i className="fab fa-facebook-f"></i>
+                </a>
+                <a href="#" className="social">
+                  <i className="fab fa-google-plus-g"></i>
+                </a>
+                <a href="#" className="social">
+                  <i className="fab fa-linkedin-in"></i>
+                </a>
               </div>
-            ) : (
-              <div className="flex h-full w-full items-center justify-center font-normal text-white hover:text-teal-500">
-                SIGN IN
+              <span>or use your email for registration</span>
+              <input type="text" placeholder="Name" />
+              <input type="email" placeholder="Email" />
+              <input type="password" placeholder="Password" />
+              <button>Sign Up</button>
+            </form>
+          </div>
+          <div className="form-container sign-in-container">
+            <form action="#">
+              <h1>Sign in</h1>
+              <div className="social-container">
+                <a href="#" className="social">
+                  <i className="fab fa-facebook-f"></i>
+                </a>
+                <a href="#" className="social">
+                  <i className="fab fa-google-plus-g"></i>
+                </a>
+                <a href="#" className="social">
+                  <i className="fab fa-linkedin-in"></i>
+                </a>
               </div>
-            )}
-          </button>
-        </div>
-        <div className="col-span-3 flex h-full items-center justify-center rounded-tr-3xl rounded-br-3xl border-4 border-teal-500 bg-slate-100">
-          {mode ? <LoginLayout /> : <RegLayout />}
+              <span>or use your account</span>
+              <input type="email" placeholder="Email" />
+              <input type="password" placeholder="Password" />
+              <a href="#">Forgot your password?</a>
+              <button>Sign In</button>
+            </form>
+          </div>
+          <div className="overlay-container">
+            <div className="overlay">
+              <div className="overlay-panel overlay-left">
+                <h1>Welcome Back!</h1>
+                <p>
+                  To keep connected with us please login with your personal info
+                </p>
+                <button
+                  className="ghost"
+                  id="signIn"
+                  onClick={() => setAddClass('')}
+                >
+                  Sign In
+                </button>
+              </div>
+              <div className="overlay-panel overlay-right">
+                <h1>Hello, Friend!</h1>
+                <p>Enter your personal details and start journey with us</p>
+                <button
+                  className="ghost"
+                  id="signUp"
+                  onClick={() => setAddClass('right-panel-active')}
+                >
+                  Sign Up
+                </button>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
