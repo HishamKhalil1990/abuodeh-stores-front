@@ -2,6 +2,27 @@ import { useState } from 'react'
 
 function Login() {
   const [addClass, setAddClass] = useState('')
+  const [username, setUsername] = useState('')
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
+  const [confirmPass, setConfirmPass] = useState('')
+  const [match, setMatch] = useState('')
+  const emptyFields = () => {
+    console.log(username, password, email, confirmPass)
+    setUsername('')
+    setEmail('')
+    setPassword('')
+    setConfirmPass('')
+  }
+  const validate = () => {
+    if (confirmPass.length > 0 && password.length > 0) {
+      if (confirmPass == password) {
+        setMatch('matched')
+      } else {
+        setMatch('not matched')
+      }
+    }
+  }
   const changeUser = () => {}
   const changePassword = () => {}
   const login = () => {}
@@ -13,41 +34,65 @@ function Login() {
           <div className="form-container sign-up-container">
             <form action="#">
               <h1>Create Account</h1>
-              <div className="social-container">
-                <a href="#" className="social">
-                  <i className="fab fa-facebook-f"></i>
-                </a>
-                <a href="#" className="social">
-                  <i className="fab fa-google-plus-g"></i>
-                </a>
-                <a href="#" className="social">
-                  <i className="fab fa-linkedin-in"></i>
-                </a>
+              <input
+                type="text"
+                placeholder="Username"
+                value={username}
+                onChange={(event) => {
+                  setUsername(event.target.value)
+                }}
+              />
+              <input
+                type="email"
+                placeholder="Email"
+                value={email}
+                onChange={(event) => {
+                  setEmail(event.target.value)
+                }}
+              />
+              <input
+                type="password"
+                placeholder="Password"
+                value={password}
+                pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+                onChange={(event) => {
+                  setPassword(event.target.value)
+                }}
+              />
+              <input
+                type="password"
+                placeholder="Confirm Password"
+                onBlur={validate}
+                value={confirmPass}
+                onChange={(event) => {
+                  setConfirmPass(event.target.value)
+                }}
+              />
+              <div className="w-full text-left">
+                <div className='text-xs text-green-500'>{match}</div>
               </div>
-              <span>or use your email for registration</span>
-              <input type="text" placeholder="Name" />
-              <input type="email" placeholder="Email" />
-              <input type="password" placeholder="Password" />
               <button>Sign Up</button>
             </form>
           </div>
           <div className="form-container sign-in-container">
             <form action="#">
               <h1>Sign in</h1>
-              <div className="social-container">
-                <a href="#" className="social">
-                  <i className="fab fa-facebook-f"></i>
-                </a>
-                <a href="#" className="social">
-                  <i className="fab fa-google-plus-g"></i>
-                </a>
-                <a href="#" className="social">
-                  <i className="fab fa-linkedin-in"></i>
-                </a>
-              </div>
-              <span>or use your account</span>
-              <input type="email" placeholder="Email" />
-              <input type="password" placeholder="Password" />
+              <input
+                type="text"
+                placeholder="Username"
+                value={username}
+                onChange={(event) => {
+                  setUsername(event.target.value)
+                }}
+              />
+              <input
+                type="password"
+                placeholder="Password"
+                value={password}
+                onChange={(event) => {
+                  setPassword(event.target.value)
+                }}
+              />
               <a href="#">Forgot your password?</a>
               <button>Sign In</button>
             </form>
@@ -62,7 +107,10 @@ function Login() {
                 <button
                   className="ghost"
                   id="signIn"
-                  onClick={() => setAddClass('')}
+                  onClick={() => {
+                    emptyFields()
+                    setAddClass('')
+                  }}
                 >
                   Sign In
                 </button>
@@ -73,7 +121,10 @@ function Login() {
                 <button
                   className="ghost"
                   id="signUp"
-                  onClick={() => setAddClass('right-panel-active')}
+                  onClick={() => {
+                    emptyFields()
+                    setAddClass('right-panel-active')
+                  }}
                 >
                   Sign Up
                 </button>
