@@ -29,7 +29,7 @@ function Login() {
 
   return (
     <div className="login-reg-container">
-      <div classNameName="loginbody">
+      <div className="loginbody">
         <div className={`container ${addClass}`} id="container">
           <div className="form-container sign-up-container">
             <form action="#">
