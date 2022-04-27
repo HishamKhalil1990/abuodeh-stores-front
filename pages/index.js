@@ -1,4 +1,5 @@
 import Login from "./account/login"
+import SendPassToken from '../Components/SendPassToken'
 import Head from 'next/head'
 
 const NavBar = () => {
